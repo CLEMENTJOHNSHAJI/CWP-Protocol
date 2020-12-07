@@ -1,0 +1,179 @@
+# ESDE-2019
+# CWP: Continuous Wave Protocol application
+
+# Group information
+* Student 1. Sirapop Wongstapornpat (wong.sirapop(at)gmail.com)(ID-2600495)
+* Student 2. Clement John Shaji (clementjohnshaji(at)gmail.com)(ID-2600466)
+-----
+# CWP App-Introduction
+The application is a client that connects to a server using CWP (Continuous Wave Protocol).
+The application can select a frequency and can recieve and send continuous wave signals
+from both server and other users, represented with visual signs and audible sounds sent by pressing an image in the screen.
+
+# Prerequisites
+The application is not available in any playstore yet. So we need the latest version of Android Studio for running the application.
+The application can run on any Android device with Minimum SDK: API 19: Android 4.4 KitKat or newer; API level 26 is recommended target
+for the successful running of application. 
+
+# Downloding app
+## Command prompt
+ *Go to your desired location where you want to store the files using cd command. 
+ *Then run git clone https://linkcj@bitbucket.org/ipsoulu/esde-2019-013.git 
+ 
+ '''Eg: cd /Users/clementjohnshaji/Desktop/AndroidProjects/esde-2019-013 
+ git clone https://linkcj@bitbucket.org/ipsoulu/esde-2019-013.git'''
+ 
+ *Open your Android studio application and import the project from 'Open an existing android studio project' option.
+ 
+# Deployment
+ From the android studio application, you can run either in emulator or in an android device. 
+## In Emulator
+  In Android studio, go to Run and then Run App, Create a virtual device with above said specifications 
+  if you have not created any, select the device and select OK. The app will run on the emulator now. 
+  Keep in mind that Android Studio is heavy and running in emulator may take some time.
+  
+## In Android Device
+ Make sure that your USB debugging option is on and is connected to the system properly in the first time, if you are running in android device.
+ If the device is connected properly, you can see that your device in the connected device list when you 'Run App'. Select your device and select OK.
+ After the first run, the application will get installed in your device and can use it without USB debugging. 
+ 
+# Running 
+ Make sure that your device which is running the app is connected to an active internet source using wifi or mobile network.
+ On your Screen swipe to the left to see the window where you can connect to the server and then changing frequency. 
+ You can change the server address and frequency in the settings also. 
+ If the state is changed to connected, your app is ready to send and recieve signals.
+ 
+# Testing
+ For testing purposes, we used the server running at cwp.opimobi.com . For using this public server change the server address from settings into cwp.opimobi.com:20000.
+ Alternatively, you can download and use the provided CWP server binaries, provided that the provided packages run on your development device.
+ You can download the server binaries from https://wiki.oulu.fi/display/esde/CWP+Server+binaries .
+ 
+
+| CWP App Discription |                                                                                                                                                           |
+|---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Supports            | High- End SmartPhones and Tablets                                                                                                                         |
+| Functionality       | The application is a client that connects to a server using CWP. The application can select a frequency and can recieve and send continuous wave signals. |
+| Supported Platforms | Android SDK 19(Android 4.4) and Higher  
+ 
+## 1.Environment
+  The game is tested in Android studio Emulators and androind phones.
+  
+  | Device Model       | OS Version  | RAM | Test Result |
+|--------------------|-------------|-----|-------------|
+| Honor 8 LIte       | Android 8   | 4GB | Passed      |
+| Motorola Moto G    | Android 7.0 | 3GB | Passed      |
+| Nexus 4-Emulator   | Android 8   |     | Passsed     |
+| Pixel XL- Emulator | Android 8   |     | Passed      |
+| Nexus 10(Tab)-Emulator|Android 9 |     | Passed      |
+
+## 2.List of functionalities checked.
+ 
+ 
+ | Functionality                                                      | Result           |
+|--------------------------------------------------------------------|------------------|
+| Check internet connection on device.                               | Passed           |
+| Installation of app from android studio.                           | Passed           |
+| Check name of the application on the device                        | Passed           |
+| Application loaded succesfully                                     | Passed           |
+| Check rotation of application                                      | Failed           |
+| All intended graphic elements and texts working.                   | Passed           |
+| In the main menu there is settings button.                         | Passed           |
+| Check swipe on screen is working.                                  | Passed           |
+| Check connectivity to server.                                      | Passed           |
+| Check changing of frequency                                        | Passed           |
+| Check changing of server and frequency from settings.              | Passed           |
+| Check Tapping image change in main screen after connecting server. | Passed           |
+| Tapping on the image changes image and ring sound.                 | Passed           |
+| Connecting two devices to the same server and frequency.           | Passed           |
+| Line up/down states overlapping on several clients.                | Passed           |
+| Sending signals between devices by tapping.                        | Passed           |
+| Sending signals by quick tapping.                                  | Passed           |
+| Sending signals by very long tapping.                              | Passed           |
+| Sending signals by rapidly repeating taps.                         | Passed           |
+| Frequently connect and disconnect emulator device to server.       | Failed           |
+| Frequently connect and disconnect Android device to server.        | Passed           |
+| Trying to connect to server without wifi->Connection failed.       | Passed           |
+| Connected to server and turning wifi off->Disconnect from server.  | Passed           |
+| Server goes down.                                                  | Did not checked. |
+| Downloading and running git repository in a new location.          | Passed           |
+| Uninstalling app from device.                                      | Passed           |
+| Installing app again into same device.                             | Passed           |
+
+## 3.Performance testing
+
+Performance testing of the application is done using android studio profiler and Event Logger utility class. 
+Using android studio profiler, we can identify the CPU, Memory, Network and Energy usage of the application. 
+For checking the memory usage of the application go to the View->Tool Windows->Profiler section after running 
+the application in your android device(Emulator does not give valid figures). We can check the consumption and 
+allocation of memory during certain events by selecting a section from the graph. It shows the log of allocation
+of memmory and how much each section is used.
+
+### Memory
+
+| Action(Honor 8 Lite)       | Avg of total Memory Usage(Mb) from 3 tests | Avg Allocation(In bytes) |
+|----------------------------|-----------------------------------|------------|
+| Starting the app           | 256.9                             | 0          |
+|Starting main activity   |56.2.                               |30022
+| No activity after starting | 42.8                              | 161         |
+| Tapping activity           | 49.7                              | 352        |
+| Changing Activity          | 52.5                              | 189          |
+| Connecting to server       | 55.8                              | 3848         |
+| Changing frequency         | 56.1                              | 889          |
+| Typing frequency           | 56.5                              | 2674        |
+| Sending a signal           | 55.8                              | 271          |
+| Sending double signal      | 56.1                              | 354          |
+| Sending long signal        | 56.3                              | 366          |
+| Sending rapid signals      | 56.4                              | 2929          |
+| Receive a signal           | 55.9                              | 227        |
+| Receive double signal      | 55.7                              | 324          |
+| Receive long Signal        | 56.3                              | 366          |
+| Receive rapid Signals      | 56.5                              | 1349         |
+| Disconnecting from Server  | 60.2                              | 1610          |
+
+From the performance testing it is clear that largest memory allocated for the application other than the starting time is when application connects to the server. 
+Sending rapid signals and disconnecting from server comes second and third respectively followed by the typing of frequency and reception of rapid signals which 
+shows that memory is more allocated during rapid sending/receiving of signals than long signals.  Also, the testing shows that the sending or reception of first 
+signal takes more memory than the consequent signals followed.
+
+
+### Time
+
+The time allocated for each function is identified by adding the EventLogger utility class and calling 
+logEventStarted() before some specific event and logEventEnded() after the event has been handled.
+
+| Functionality        	| Time in ms 	         	        	|
+|----------------------	|------------	|---------	|--------	|
+|                      	|   Minimum  	| Maximum 	| Averge 	|
+| Server Connect       	| 11         	| 15      	| 13     	|
+| Server Disconnect    	| 4          	| 7       	| 6      	|
+| Change frequency     	| 18         	| 20      	| 19     	|
+| Line Up single tap   	| 6          	| 18      	| 12     	|
+| Line Down single tap 	| 11         	| 31      	| 21     	|
+| Line Up long tap     	| 5          	| 11      	| 8      	|
+| Line Down long tap   	| 5          	| 39      	| 22     	|
+
+
+The average execution time is maximum for Line down function followed by frequency change because of a number of 
+try-catch blocks followed by conditional statements to check. Server disconnect is the fastest happening event 
+followed by Line up. The variations in maximum and minimum of line up and line down are high while Server connect
+and disconnect had small differences. The execution time of the functions could be improved by returning empty 
+collections and arrays instead of null and avoiding the nested conditional statements in the functions. Lazy allocations
+and Null objects as soon as possible when they are no longer needed also leads to improved performance.
+
+# Workload
+
+
+ |      Members      |                                                         Work Done                                                        |  Working Hours  |
+|:-----------------:|:------------------------------------------------------------------------------------------------------------------------:|:---------------:|
+| Sirapop   Clement | Creates Tapping Fragment. \  Created Initial Files.                                                                       | 5 Hrs \   4 Hrs   |
+| Sirapop   Clement | ControlFragment and SectionPageAdapter Added.  \ UI improvements and a new Fragment view.                                  | 7 Hrs \  7 Hrs   |
+| Sirapop   Clement | Add preferences activity. \  Implementing app settings.                                                                | 8 Hrs \  7 Hrs   |
+| Sirapop   Clement | Add initial protocol implementation.  \ Listening protocol events in the Model  and Finalizing Doings 4.                   | 8 Hrs \  10 Hrs  |
+| Sirapop   Clement | Add network connection.  \ Help in handling incoming data.                                                                | 10 Hrs \  7 Hrs  |
+| Sirapop   Clement | Implement changing frequency and Locks.  \ Tested and find out some bugs and helped  changes to CWProtocolImplementation. | 15 Hrs \  9 Hrs  |
+| Sirapop   Clement | Added beep sound and toasts. \  Network issues Handling and Adding Toasts.                                             | 12 Hrs \  11 Hrs |
+| Sirapop   Clement | Testing the application.  \ Testing & improving the application.                                                       | 10 Hrs \  10 Hrs |
+| Sirapop   Clement | Finalizing the doings.  \ Performance optimizing & adding Readme File.                                                   | 3 Hrs \  8 Hrs   |
+
+
+ 
